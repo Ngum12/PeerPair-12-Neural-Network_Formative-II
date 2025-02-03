@@ -42,7 +42,7 @@ Each team member implemented unique optimization strategies:
 | Member | Regularization | Optimizer | Learning Rate | Dropout Rate | Early Stopping Patience |
 |--------|---------------|-----------|---------------|--------------|----------------------|
 | Ngum   | L2(0.01)      | Adam      | 0.001         | 0.3          | 5 epochs             |
-|        | L1(0.001)     | RMSprop   | 0.0005        | 0.5          | 8 epochs             |
+| Marion | L2(0.001)     | SGD       | 0.0005        | 0.5          | 3 epochs             |
 |        | L1L2(0.01)    | AdaGrad   | 0.0001        | 0.4          | 10 epochs            |
 
 ## 📈 Performance Metrics
@@ -51,9 +51,9 @@ Each team member implemented unique optimization strategies:
 
 | Model | Accuracy | F1 Score | Precision | Recall |
 |-------|----------|-----------|-----------|---------|
-| Alice  | 0.89     | 0.88      | 0.87      | 0.89    |
-| Bob    | 0.91     | 0.90      | 0.92      | 0.89    |
-| Carol  | 0.88     | 0.87      | 0.86      | 0.88    |
+| Marion| 0.81     | 0.72      | 0.71      | 0.73    |
+| Bob   | 0.91     | 0.90      | 0.92      | 0.89    |
+| Carol | 0.88     | 0.87      | 0.86      | 0.88    |
 
 ## 🔍 Analysis Insights
 

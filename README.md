@@ -57,20 +57,20 @@ model = create_model()
 ## 🔄 Optimization Techniques
 Each team member implemented unique optimization strategies:
 
-| Member | Regularization | Optimizer | Learning Rate | Dropout Rate | Early Stopping Patience |
-|--------|---------------|-----------|---------------|--------------|----------------------|
-| Ngum   | L2(0.001)     | Adam      | 0.0005       | 0.4 → 0.3 → 0.2|          15         |
-|        | L1(0.001)     | RMSprop   |               |              |                      |
+| Member | Regularization | Optimizer | Learning Rate| Dropout Rate   | Early Stopping Patience |
+|--------|--------------  |-----------|--------------|--------------  |----------------------   |
+| Ngum   |L2(0.001)       | Adam      | 0.0005       | 0.4 → 0.3 → 0.2|          15             |
+|  Marion|L2(0.001,0.01)  | SGD       |   0.005      |  0.4           |       4                 |
 |        | L1L2(0.01)    | AdaGrad   |               |             |                       |
 
 ## 📈 Performance Metrics
 
 ### Model Comparison Results
 
-| Model | Accuracy | F1 Score | Precision | Recall |
-|-------|----------|-----------|-----------|---------|
-| Ngum   | 0.70    | 0.78-0.52| 0.72-0.62| 0.86-0.44|
-| Bob    |          |           |        |       |
+| Model  | Accuracy | F1 Score  | Precision  | Recall   |
+|------- |----------|---------- |----------- |--------- |
+| Ngum   |0.70      | 0.78/0.52 | 0.72/0.62  | 0.86/0.44|
+| Marion |0.76/0.64 | 0.71/0.55 | 0.70/0.57  | 0.71/0.54|
 | Carol  |          |           |        |      |
 
 ## 🔍 Analysis Insights
@@ -82,12 +82,25 @@ Each team member implemented unique optimization strategies:
   3. Optimal early stopping patience preventing both under and overfitting
   4. RMSprop optimizer's adaptive learning rate providing better convergence on this dataset
 
-### Key Findings
-1. Higher dropout rates (>0.5) led to underfitting
-2. L1 regularization showed better feature selection compared to L2
-3. Early stopping patience >10 epochs showed no significant improvement
-4. RMSprop optimizer outperformed both Adam and AdaGrad in convergence speed and final accuracy
+- Marion's model performed like this:
+  1. It achieved a train accuracy of 0.762 but dropped to 0.649 on the test accuracy. This shows that the model may have somewhat overfitted the training data despite my use of dropout and early stopping.
+  2. The model performs better at predicting class 0 (with a precision of 0.70 and recall of 0.71) but struggles with class 1 (precision of 0.57 and recall of 0.54). This imbalance may be due to class distribution in the data.
+  3. The F1 score for class 0 (0.71) is much better than for class 1 (0.55), reflecting a higher balance between precision and recall for class 0.
+  4. The choice of a small learning rate (0.0005) with SGD seems to be effective in the data training.
 
+### Key Findings
+- Ngum:
+  1. Higher dropout rates (>0.5) led to underfitting.
+  2. L1 regularization showed better feature selection compared to L2
+  3. Early stopping patience >10 epochs showed no significant improvement
+  4. RMSprop optimizer outperformed both Adam and AdaGrad in convergence speed and final accuracy
+
+- Marion:
+  1. The SGD optimizer with a low learning rate and dropout contributed to a stable training process, but it also led to a notable gap between train and test accuracy.
+  2. Precision and recall metrics show a stronger performance on the majority class (class 0), indicating the need to address class imbalance further.
+  3. Exploring different regularization techniques and optimizing the dropout rate and early stopping criteria could help balance the performance across classes, especially
+     improving recall for class 1.
+     
 ## 🚦 Getting Started
 
 ### Prerequisites

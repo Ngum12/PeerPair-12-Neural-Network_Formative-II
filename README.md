@@ -76,8 +76,8 @@ Each team member implemented unique optimization strategies:
 ## 🔍 Analysis Insights
 
 ### Performance Analysis
-- Bob's model achieved superior performance due to:
-  1. Balanced dropout rate (0.5) preventing overfitting while maintaining model capacity
+- Ngum's model achieved superior performance due to:
+  1. Balanced dropout rate (0.4) preventing overfitting while maintaining model capacity
   2. Conservative learning rate (0.0005) enabling stable convergence
   3. Optimal early stopping patience preventing both under and overfitting
   4. RMSprop optimizer's adaptive learning rate providing better convergence on this dataset
@@ -134,19 +134,16 @@ neural-network-classifier/
 ```
 
 ## 👥 Team Contributions
-- **Alice**: Data preprocessing, L2 regularization implementation, Adam optimizer tuning
-- **Bob**: Model architecture design, L1 regularization studies, RMSprop implementation
-- **Carol**: Performance analysis, L1L2 regularization experiments, AdaGrad optimization
+- **Ngum**: Data preprocessing, L2 regularization implementation, Adam optimizer tuning
+- **Marion**: Model architecture design, L1 regularization studies, RMSprop implementation
+- **Aubin**: Performance analysis, L1L2 regularization experiments, AdaGrad optimization
 
 ## 📊 Result Visualization
 Model performance visualization and training curves are available in the `notebooks/analysis.ipynb` file.
 
-## 🤝 Contributing
+##  Contributing
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## 📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.

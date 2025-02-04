@@ -60,7 +60,7 @@ Each team member implemented unique optimization strategies:
 | Member | Regularization | Optimizer | Learning Rate| Dropout Rate   | Early Stopping Patience |
 |--------|--------------  |-----------|--------------|--------------  |----------------------   |
 | Ngum   |L2(0.001)       | Adam      | 0.0005       | 0.4 → 0.3 → 0.2|          15             |
-|  Marion|L2(0.001,0.01)  | SGD       |   0.005      |  0.4           |       4                 |
+|  Marion|L2(0.001,0.01)  | SGD       |   0.0005     |  0.4           |       4                 |
 |        | L1L2(0.01)    | AdaGrad   |               |             |                       |
 
 ## 📈 Performance Metrics

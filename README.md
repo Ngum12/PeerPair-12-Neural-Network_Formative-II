@@ -73,6 +73,9 @@ Each team member implemented unique optimization strategies:
 | Marion |0.65      | 0.71/0.55 | 0.70/0.57  | 0.71/0.54|
 | Aubin  |0.68      | 0.78/0.43 | 0.69/0.64  | 0.89/0.33|
 
+[The video to our presentation](https://drive.google.com/drive/folders/1QuyV-atXAYeEz5cR0BEYwNM8ZHgwicW2?usp=sharing)
+
+
 Accuracy:
 Ngum and Aubin had the highest accuracy rate compared to Marion: 70%, 68%, and 65% respectively. This suggests that Marion's model may have had more difficulty in generalizing across the entire dataset.
 

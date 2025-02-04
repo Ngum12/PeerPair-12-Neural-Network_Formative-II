@@ -43,7 +43,7 @@ Each team member implemented unique optimization strategies:
 |--------|---------------|-----------|---------------|--------------|----------------------|
 | Ngum   | L2(0.01)      | Adam      | 0.001         | 0.3          | 5 epochs             |
 |        | L1(0.001)     | RMSprop   | 0.0005        | 0.5          | 8 epochs             |
-|        | L1L2(0.01)    | AdaGrad   | 0.0001        | 0.4          | 10 epochs            |
+| Aubin  | L2(0.005)     | RMSprop   | 0.0004        | 0.2          | 10 epochs            |
 
 ## 📈 Performance Metrics
 
@@ -51,24 +51,24 @@ Each team member implemented unique optimization strategies:
 
 | Model | Accuracy | F1 Score | Precision | Recall |
 |-------|----------|-----------|-----------|---------|
-| Alice  | 0.89     | 0.88      | 0.87      | 0.89    |
+| Aubin  | 0.68     | 0.78/0.43| 0.69/0.64 | 0.89/0.33|
 | Bob    | 0.91     | 0.90      | 0.92      | 0.89    |
 | Carol  | 0.88     | 0.87      | 0.86      | 0.88    |
 
 ## 🔍 Analysis Insights
 
 ### Performance Analysis
-- Bob's model achieved superior performance due to:
-  1. Balanced dropout rate (0.5) preventing overfitting while maintaining model capacity
-  2. Conservative learning rate (0.0005) enabling stable convergence
-  3. Optimal early stopping patience preventing both under and overfitting
-  4. RMSprop optimizer's adaptive learning rate providing better convergence on this dataset
+Aubin's model shows interesting learning dynamics:
+
+- The training accuracy steadily increases to around 0.71 while validation accuracy plateaus at approximately 0.68, indicating relatively good generalization with minimal overfitting despite the growing gap.
+- The loss curves show rapid initial convergence in the first 10 epochs, followed by a stable plateau around 0.6 for both training and validation loss, suggesting the model found a stable optimization point.
+- The validation accuracy shows periodic fluctuations between 0.67-0.68 throughout training, while maintaining overall stability, which could indicate the model is sensitive to certain batches in the validation set.
+- The consistent convergence pattern suggests the RMSprop optimizer with learning rate 0.0004 provided effective gradient updates.
 
 ### Key Findings
-1. Higher dropout rates (>0.5) led to underfitting
-2. L1 regularization showed better feature selection compared to L2
-3. Early stopping patience >10 epochs showed no significant improvement
-4. RMSprop optimizer outperformed both Adam and AdaGrad in convergence speed and final accuracy
+- The combination of L2 regularization (0.005) and moderate dropout (0.2) appears effective at maintaining a reasonable gap between training and validation performance, though there's room for improvement in closing this gap further.
+- The model's stronger performance on Class 1 (recall 0.89) versus Class 2 (recall 0.33) suggests potential class imbalance issues that could be addressed through sampling techniques or class weights.
+- The training dynamics show good stability but potential for better generalization - adjusting the early stopping patience (currently 10 epochs) could help capture better model states given the oscillating validation accuracy pattern.
 
 ## 🚦 Getting Started
 

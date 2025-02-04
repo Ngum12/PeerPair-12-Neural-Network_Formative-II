@@ -61,7 +61,7 @@ Each team member implemented unique optimization strategies:
 |--------|--------------  |-----------|--------------|--------------  |----------------------   |
 | Ngum   |L2(0.001)       | Adam      | 0.0005       | 0.4 → 0.3 → 0.2|          15             |
 |  Marion|L2(0.001,0.01)  | SGD       |   0.0005     |  0.4           |       4                 |
-|        | L1L2(0.01)    | AdaGrad   |               |             |                       |
+| Aubin  |L2(0.005)       | RMSProp   | 0.0004       |  0.2          |      10                    |
 
 ## 📈 Performance Metrics
 
@@ -70,8 +70,8 @@ Each team member implemented unique optimization strategies:
 | Model  | Accuracy | F1 Score  | Precision  | Recall   |
 |------- |----------|---------- |----------- |--------- |
 | Ngum   |0.70      | 0.78/0.52 | 0.72/0.62  | 0.86/0.44|
-| Marion |0.76/0.64 | 0.71/0.55 | 0.70/0.57  | 0.71/0.54|
-| Carol  |          |           |        |      |
+| Marion |0.65      | 0.71/0.55 | 0.70/0.57  | 0.71/0.54|
+| Aubin  |0.68      | 0.78/0.43 | 0.69/0.64  | 0.89/0.33|
 
 ## 🔍 Analysis Insights
 
@@ -87,6 +87,12 @@ Each team member implemented unique optimization strategies:
   2. The model performs better at predicting class 0 (with a precision of 0.70 and recall of 0.71) but struggles with class 1 (precision of 0.57 and recall of 0.54). This imbalance may be due to class distribution in the data.
   3. The F1 score for class 0 (0.71) is much better than for class 1 (0.55), reflecting a higher balance between precision and recall for class 0.
   4. The choice of a small learning rate (0.0005) with SGD seems to be effective in the data training.
+ 
+- Aubin's model shows this learning dynamics:
+  1. The training accuracy steadily increases to around 0.71 while validation accuracy plateaus at approximately 0.68, indicating relatively good generalization with minimal overfitting despite the growing gap.
+  2. The loss curves show rapid initial convergence in the first 10 epochs, followed by a stable plateau around 0.6 for both training and validation loss, suggesting the model found a stable optimization point.
+  3. The validation accuracy shows periodic fluctuations between 0.67-0.68 throughout training, while maintaining overall stability, which could indicate the model is sensitive to certain batches in the validation set.
+  4. The consistent convergence pattern suggests the RMSprop optimizer with learning rate 0.0004 provided effective gradient updates.
 
 ### Key Findings
 - Ngum:
@@ -98,8 +104,11 @@ Each team member implemented unique optimization strategies:
 - Marion:
   1. The SGD optimizer with a low learning rate and dropout contributed to a stable training process, but it also led to a notable gap between train and test accuracy.
   2. Precision and recall metrics show a stronger performance on the majority class (class 0), indicating the need to address class imbalance further.
-  3. Exploring different regularization techniques and optimizing the dropout rate and early stopping criteria could help balance the performance across classes, especially
-     improving recall for class 1.
+  3. Exploring different regularization techniques and optimizing the dropout rate and early stopping criteria could help balance the performance across classes, especially improving recall for class 1.
+
+- Aubin
+  1. The model's stronger performance on Class 1 (recall 0.89) versus Class 2 (recall 0.33) suggests potential class imbalance issues that could be addressed through sampling techniques or class weights.
+  2. The combination of L2 regularization (0.005) and moderate dropout (0.2) appears effective at maintaining a reasonable gap between training and validation performance, though there's room for improvement in closing this gap further.
      
 ## 🚦 Getting Started
 

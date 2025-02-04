@@ -41,7 +41,7 @@ Each team member implemented unique optimization strategies:
 
 | Member | Regularization | Optimizer | Learning Rate | Dropout Rate | Early Stopping Patience |
 |--------|---------------|-----------|---------------|--------------|----------------------|
-| Ngum   | L2(0.001)     | Adam      | 0.0005       |     0.4       |          15           |
+| Ngum   | L2(0.001)     | Adam      | 0.0005       | 0.4 → 0.3 → 0.2|          15         |
 |        | L1(0.001)     | RMSprop   |               |              |                      |
 |        | L1L2(0.01)    | AdaGrad   |               |             |                       |
 
